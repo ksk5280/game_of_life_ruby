@@ -1,7 +1,7 @@
 require "rspec"
 require "pry"
 
-require_relative "world"
+require "./app/world"
 # The purpose of “describe” is to wrap a set of tests against one functionality while “context” is to wrap a set of tests against one functionality under the same state.
 
 describe "World" do
@@ -14,8 +14,7 @@ describe "World" do
     end
 
     context "creates a grid" do
-
-      it "of dead cells" do
+      it "of cells" do
         expect(subject).to respond_to(:grid)
       end
 
