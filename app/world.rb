@@ -1,3 +1,5 @@
+require_relative "cell"
+
 class World
   attr_accessor :rows, :columns, :grid
 
@@ -7,6 +9,7 @@ class World
 
     @grid = Array.new(rows) do |row|
       Array.new(columns) do |col|
+        Cell.new
       end
     end
   end
