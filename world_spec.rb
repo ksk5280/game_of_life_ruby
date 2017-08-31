@@ -5,11 +5,17 @@ require_relative "world"
 describe "World" do
   describe "when initialized" do
 
+    subject { World.new }
+# NOTE: When created, it's empty and dead. First tick: cell generation
 
     it "creates a world of columns and rows" do
-      world = World.new
-      expect(world).to respond_to(:rows)
-      expect(world).to respond_to(:columns)
+      expect(subject).to respond_to(:rows)
+      expect(subject).to respond_to(:columns)
+    end
+
+    it "creates a grid of dead cells" do
+      expect(subject).to respond_to(:grid)
+      expect(subject.grid).to be_a(Array)
     end
 
 
