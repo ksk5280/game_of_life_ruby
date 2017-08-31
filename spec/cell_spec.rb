@@ -25,6 +25,10 @@ describe "Cell" do
       expect(subject).to respond_to(:y)
     end
 
+    it "is dead to start" do
+      expect(subject).to_not be_alive
+    end
+
 
   end
 end
