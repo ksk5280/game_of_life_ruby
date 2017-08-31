@@ -5,8 +5,9 @@ class World
     @rows = rows
     @columns = columns
 
-    @grid = Array.new(rows) do |c|
-      Array.new(c)
+    @grid = Array.new(rows) do |row|
+      Array.new(columns) do |col|
+      end
     end
   end
 end
