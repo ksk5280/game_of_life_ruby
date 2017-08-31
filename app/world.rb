@@ -9,8 +9,14 @@ class World
 
     @grid = Array.new(rows) do |row|
       Array.new(columns) do |col|
-        Cell.new
+        Cell.new(col, row)
       end
     end
   end
 end
+
+# [
+# [Cell=0,0][Cell=1,0][Cell=2,0],
+# [Cell=0,1][Cell=1,1][Cell=2,1],
+# [Cell=0,2][Cell=1,2][Cell=2,2]
+# ]
