@@ -2,7 +2,6 @@ require "rspec"
 require "pry"
 
 require "./app/world"
-# The purpose of “describe” is to wrap a set of tests against one functionality while “context” is to wrap a set of tests against one functionality under the same state.
 
 describe "World" do
   subject { World.new }
@@ -39,7 +38,7 @@ describe "World" do
       expect(north_cell).to be_alive
 
       south_cell = subject.grid[1][1]
-      binding.pry
+      # binding.pry
       expect(subject.live_neighbors(south_cell).count).to eql(1)
     end
 

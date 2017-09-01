@@ -20,12 +20,12 @@ class World
 
     # North
     if cell.y > 0
-      live_N = self.grid[cell.x][cell.y - 1]
+      live_N = self.grid[cell.y - 1][cell.x]
       living << live_N if live_N.alive?
     end
     # South
     if cell.y < (rows - 1)
-      live_S = self.grid[cell.x][cell.y + 1]
+      live_S = self.grid[cell.y + 1][cell.x]
       living << live_S if live_S.alive?
     end
     # East
