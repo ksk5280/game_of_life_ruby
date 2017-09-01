@@ -15,10 +15,31 @@ class World
   end
 
   def live_neighbors(cell)
-    live_neighbors = []
+    # incoming cell is dead pointer
+    living = []
 
-    
-    live_neighbors
+    # North
+    if cell.y > 0
+      live_N = self.grid[cell.x][cell.y - 1]
+      living << live_N if live_N.alive?
+    end
+    # South
+    if cell.y < (rows - 1)
+      live_S = self.grid[cell.x][cell.y + 1]
+      living << live_S if live_S.alive?
+    end
+    # East
+    if cell.x < (columns - 1)
+      live_E = self.grid[cell.y][cell.x + 1]
+      living << live_E if live_E.alive?
+    end
+    # West
+    if cell.x > 0
+      live_W = self.grid[cell.y][cell.x - 1]
+      living << live_W if live_W.alive?
+    end
+
+    living
   end
 end
 
