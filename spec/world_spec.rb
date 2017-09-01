@@ -37,6 +37,10 @@ describe "World" do
       expect(north_cell).to_not be_alive
       north_cell.alive = true
       expect(north_cell).to be_alive
+
+      south_cell = subject.grid[1][1]
+      expect(subject.live_neighbors(south_cell).count).to eql(1)
+      # binding.pry
     end
   end
 end
