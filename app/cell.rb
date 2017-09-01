@@ -1,4 +1,5 @@
 require_relative "world"
+require_relative "location"
 
 class Cell
   attr_accessor :x, :y, :alive
@@ -10,7 +11,7 @@ class Cell
   end
 
   def alive?
-    @alive
+    alive
   end
 
 end
