@@ -13,6 +13,10 @@ class World
       end
     end
   end
+
+  def live_neighbors(cell)
+
+  end
 end
 
 # [

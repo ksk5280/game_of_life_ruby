@@ -11,6 +11,7 @@ describe "World" do
     it "creates a world of columns and rows" do
       expect(subject).to respond_to(:rows)
       expect(subject).to respond_to(:columns)
+      expect(subject).to respond_to(:live_neighbors)
     end
 
     context "creates a grid" do

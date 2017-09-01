@@ -3,6 +3,7 @@ require "pry"
 require "./app/world"
 require "./app/cell"
 require "./app/board"
+# require "./app/live_cell_rules"
 
 describe "LiveCellRules" do
   let(:board) { Board.new }
@@ -10,7 +11,7 @@ describe "LiveCellRules" do
 
   context "When a cell is alive" do
     describe "Has fewer than two live neighbors" do
-      it "results results in death" do
+      xit "results results in death" do
         board = Board.new(world, [[1,1],[2,0]])
         # binding.pry
         board.tick!
