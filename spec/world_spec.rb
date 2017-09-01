@@ -23,6 +23,10 @@ describe "World" do
           expect(row).to be_a(Array)
         end
       end
+
+      it "should add cells to the cells array" do
+        expect(subject.cells.count).to eql(9)
+      end
     end
   end
 
@@ -38,7 +42,6 @@ describe "World" do
       expect(north_cell).to be_alive
 
       south_cell = subject.grid[1][1]
-      # binding.pry
       expect(subject.live_neighbors(south_cell).count).to eql(1)
     end
 
@@ -68,6 +71,30 @@ describe "World" do
 
       dead_east = subject.grid[1][2]
       expect(subject.live_neighbors(dead_east).count).to eql(1)
+    end
+
+    it "detects NW neighbor" do
+      live = subject.grid[0][0].alive = true
+      pointer = subject.grid[1][1]
+      expect(subject.live_neighbors(pointer).count).to eql(1)
+    end
+
+    it "detects NE neighbor" do
+      live = subject.grid[0][2].alive = true
+      pointer = subject.grid[1][1]
+      expect(subject.live_neighbors(pointer).count).to eql(1)
+    end
+
+    it "detects SE neighbor" do
+      live = subject.grid[2][2].alive = true
+      pointer = subject.grid[1][1]
+      expect(subject.live_neighbors(pointer).count).to eql(1)
+    end
+
+    it "detects SW neighbor" do
+      live = subject.grid[2][0].alive = true
+      pointer = subject.grid[1][1]
+      expect(subject.live_neighbors(pointer).count).to eql(1)
     end
   end
 end

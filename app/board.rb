@@ -1,5 +1,6 @@
 require_relative "world"
 require_relative "cell"
+require "pry"
 
 class Board
   attr_accessor :world, :cells
@@ -10,6 +11,16 @@ class Board
 
     cells.each do |cell_row|
       world.grid[cell_row[0]][cell_row[1]].alive = true
+    end
+  end
+
+  def tick!
+    # binding.pry
+    # look at world cells. iterate over each.
+    world.cells.each do |cell|
+      if cell.alive? && world.live_neighbors(cell).count < 2
+        cell.die!
+      end
     end
   end
 

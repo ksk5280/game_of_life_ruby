@@ -8,10 +8,11 @@ require "./app/board"
 describe "LiveCellRules" do
   let(:board) { Board.new }
   let(:world) { World.new }
+  let(:cell) { Cell.new}
 
   context "When a cell is alive" do
     describe "Has fewer than two live neighbors" do
-      xit "results results in death" do
+      it "results results in death" do
         board = Board.new(world, [[1,1],[2,0]])
         # binding.pry
         board.tick!
