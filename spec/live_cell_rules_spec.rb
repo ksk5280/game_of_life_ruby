@@ -40,25 +40,29 @@ describe "LiveCellRules" do
         expect(c2).to be_alive
       end
 
-
-      context "in an L shape lives" do
-        xit "still lives" do
-          board = Board.new(world, [[0,1],[1,1],[2,1]])
+      context "living in an L shape" do
+        it "the cells on the edge also live" do
+          board = Board.new(world, [[0,1],[1,1],[1,2]])
           c1 = world.grid[0][1]
           c2 = world.grid[1][1]
-          c3 = world.grid[2][1]
+          c3 = world.grid[1][2]
           board.tick!
-          expect(c2).to be_alive
+          expect(c1).to be_alive
+          expect(c3).to be_alive
         end
       end
 
       context "in a row" do
-        board = Board.new(world, [[1,0],[1,1],[1,2]])
-        c1 = world.grid[0][1]
-        c2 = world.grid[1][1]
-        c3 = world.grid[2][1]
-        board.tick!
-        expect(c2).to be_alive
+        it "only kills the neighbors on the edge, center lives" do
+          board = Board.new(world, [[1,0],[1,1],[1,2]])
+          c1 = world.grid[1][0]
+          c2 = world.grid[1][1]
+          c3 = world.grid[1][2]
+          board.tick!
+          expect(c2).to be_alive
+          expect(c1).to_not be_alive
+          expect(c3).to_not be_alive
+        end
       end
     end
 

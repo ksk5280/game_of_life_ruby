@@ -14,14 +14,19 @@ class Board
     end
   end
 
+  # tick triggers the next round
   def tick!
+    cells_to_die = []
+
     world.cells.each do |cell|
       if is_underpopulated?(cell)
-        cell.die!
+        cells_to_die << cell
       elsif has_cell_stability?(cell)
         cell.alive?
       end
     end
+
+    cells_to_die.each {|c| c.die!}
   end
 
   def is_underpopulated?(cell)
