@@ -17,5 +17,4 @@ class Cell
   def die!
     @alive = false
   end
-
 end

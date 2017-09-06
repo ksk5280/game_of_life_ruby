@@ -15,13 +15,15 @@ class Board
   end
 
   def tick!
-    # binding.pry
-    # look at world cells. iterate over each.
     world.cells.each do |cell|
-      if cell.alive? && world.live_neighbors(cell).count < 2
+      if is_underpopulated?(cell)
         cell.die!
       end
     end
+  end
+
+  def is_underpopulated?(cell)
+    cell.alive? && world.live_neighbors(cell).count < 2
   end
 
 end
