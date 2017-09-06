@@ -11,4 +11,7 @@ Some Issues:
 
 ## To Test:
 
-1. 
+1. Clone with `git clone https://github.com/mcshakes/game_of_life_ruby.git`.
+2. CD into the directory.
+3. Run `bundle install`
+4. Run `rspec`
