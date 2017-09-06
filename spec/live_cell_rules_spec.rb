@@ -36,10 +36,29 @@ describe "LiveCellRules" do
         c1 = world.grid[2][0]
         c2 = world.grid[1][1]
         c3 = world.grid[2][2]
-        # binding.pry
         board.tick!
-
         expect(c2).to be_alive
+      end
+    end
+
+    describe "has three live neighbors" do
+      context "in vertical line/column" do
+        it "it's still stable and survives to next generation" do
+          board = Board.new(world, [[1,1],[0,2],[2,2],[1,2]])
+          c2 = world.grid[1][1]
+          board.tick!
+          expect(c2).to be_alive
+        end
+      end
+
+      context "on three edges" do
+        it "it survives" do
+          board = Board.new(world, [[1,1],[0,2],[2,2],[0,0]])
+          c2 = world.grid[1][1]
+          binding.pry
+          board.tick!
+          expect(c2).to be_alive
+        end
       end
     end
 
