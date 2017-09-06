@@ -22,6 +22,8 @@ class Board
         cells_to_die << cell
       elsif has_cell_stability?(cell)
         cell.alive?
+      elsif is_overcrowded?(cell)
+        cells_to_die << cell
       end
     end
 
@@ -35,6 +37,10 @@ class Board
   def has_cell_stability?(cell)
     neighbor_count = cell.alive? && world.live_neighbors(cell).count
     neighbor_count == 3 || neighbor_count == 2
+  end
+
+  def is_overcrowded?(cell)
+    cell.alive? && world.live_neighbors(cell).count > 3
   end
 
 end
