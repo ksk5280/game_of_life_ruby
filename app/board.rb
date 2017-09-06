@@ -19,7 +19,7 @@ class Board
       if is_underpopulated?(cell)
         cell.die!
       elsif has_cell_stability?(cell)
-        cell.alive = true
+        cell.alive?
       end
     end
   end
