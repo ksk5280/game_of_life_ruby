@@ -146,8 +146,9 @@ describe "LiveCellRules" do
 
         # binding.pry
         board.tick!
+        # this guy stays alive
         expect(c2).to be_alive
-        # perhaps needs revive
+        # this guy is revived
         expect(c4).to be_alive
       end
 
