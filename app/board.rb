@@ -30,7 +30,7 @@ class Board
 
   def has_cell_stability?(cell)
     neighbor_count = cell.alive? && world.live_neighbors(cell).count
-    neighbor_count == 3
+    neighbor_count == 3 || neighbor_count == 2
   end
 
 end

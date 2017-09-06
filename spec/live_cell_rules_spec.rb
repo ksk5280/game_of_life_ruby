@@ -39,6 +39,21 @@ describe "LiveCellRules" do
         board.tick!
         expect(c2).to be_alive
       end
+
+
+      it "in an L shape lives" do
+        board = Board.new(world, [[0,1],[1,1],[2,1]])
+        c1 = world.grid[0][1]
+        c2 = world.grid[1][1]
+        c3 = world.grid[2][1]
+        binding.pry
+        board.tick!
+        expect(c2).to be_alive
+      end
+
+      context "in a row" do
+        board = Board.new(world, [[1,0],[1,1],[1,2]])
+      end
     end
 
     describe "has three live neighbors" do
@@ -52,10 +67,10 @@ describe "LiveCellRules" do
       end
 
       context "on three edges" do
-        it "it survives" do
+        xit "it survives" do
           board = Board.new(world, [[1,1],[0,2],[2,2],[0,0]])
           c2 = world.grid[1][1]
-          binding.pry
+          # binding.pry
           board.tick!
           expect(c2).to be_alive
         end
