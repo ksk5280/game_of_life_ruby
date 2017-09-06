@@ -18,12 +18,18 @@ class Board
     world.cells.each do |cell|
       if is_underpopulated?(cell)
         cell.die!
+      elsif has_cell_stability?(cell)
+        cell.alive = true
       end
     end
   end
 
   def is_underpopulated?(cell)
     cell.alive? && world.live_neighbors(cell).count < 2
+  end
+
+  def has_cell_stability?(cell)
+    cell.alive? && world.live_neighbors(cell).count == 2
   end
 
 end
