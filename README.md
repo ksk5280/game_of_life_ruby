@@ -3,10 +3,13 @@
 A fun challenge I took while reading Corey Haines' "Understanding the Four Rules of Simple Design". While I couldn't follow all the possible examples he
 he gave, I did try my best to extract knowledge between classes and use TDD to drive the design.
 
-Some Issues:
+(_Full Disclosure: there was a lot of `binding.pry` debugging goign on, some even driving the testing. I'm not sure if that leads to bad habits, but for this project, it really helped to visualize changes to the Cell Grid within the REPL._)
+
+**Some Issues:**
 
 * I spent way too long on the idea of a Location class:
   - The location class will have _all_ knowledge of the x and y axis, while letting the cell (or board) know of neighboring cells.
+  - At some point, it felt like I was extracting too much for the sake of extraction, so I scrapped it. I do plan on revisiting this idea in a separate working branch; it was just taking too much time.
   
 
 ## To Test:
