@@ -83,11 +83,15 @@ describe "LiveCellRules" do
       end
 
       context "on three edges" do
-        xit "it survives" do
+        it "center cell survives while edge cells die" do
           board = Board.new(world, [[1,1],[0,2],[2,2],[0,0]])
+          c1 = world.grid[0][0]
           c2 = world.grid[1][1]
+          c3 = world.grid[2][0]
           board.tick!
           expect(c2).to be_alive
+          expect(c1).to_not be_alive
+          expect(c3).to_not be_alive
         end
       end
     end
