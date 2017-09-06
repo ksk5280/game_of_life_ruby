@@ -3,7 +3,6 @@ require "pry"
 require "./app/world"
 require "./app/cell"
 require "./app/board"
-# require "./app/live_cell_rules"
 
 describe "LiveCellRules" do
   let(:board) { Board.new }
@@ -98,17 +97,36 @@ describe "LiveCellRules" do
 
     describe "has more than three live neighbors" do
 
-      describe "with four neighbors on the edges" do
-        it "center cell survives while edge cells die" do
+      context "with four neighbors on the edges" do
+        it "all cells die for different reasons" do
           board = Board.new(world, [[1,1],[0,2],[2,2],[0,0],[2,0]])
           c1 = world.grid[0][0]
           c2 = world.grid[1][1]
           c3 = world.grid[2][0]
           board.tick!
-          
+
           expect(c2).to_not be_alive
           expect(c1).to_not be_alive
           expect(c3).to_not be_alive
+        end
+      end
+
+      context "with five neighboring cells forming a T - shape" do
+        it "bottom two cells die; one from over and one from under" do
+          board = Board.new(world, [[1,1],[0,1],[0,2],[0,0],[2,1]])
+          c1 = world.grid[0][0]
+          c2 = world.grid[0][1]
+          c3 = world.grid[0][2]
+          c4 = world.grid[1][1]
+          c5 = world.grid[2][1]
+
+          board.tick!
+
+          expect(c2).to be_alive
+          expect(c1).to be_alive
+
+          expect(c4).to_not be_alive
+          expect(c5).to_not be_alive
         end
       end
 
