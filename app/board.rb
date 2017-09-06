@@ -16,6 +16,7 @@ class Board
 
   def tick!
     cells_to_die = []
+    cells_to_regain_life = []
 
     world.cells.each do |cell|
       if is_underpopulated?(cell)
@@ -24,10 +25,13 @@ class Board
         cell.alive = true
       elsif is_overcrowded?(cell)
         cells_to_die << cell
+      elsif is_reproducible?(cell)
+        cells_to_regain_life << cell
       end
     end
 
     cells_to_die.each { |c| c.die! }
+    cells_to_regain_life.each { |c| c.revive! }
   end
 
   def is_underpopulated?(cell)
@@ -44,7 +48,7 @@ class Board
   end
 
   def is_reproducible?(cell)
-    cell
+    cell.dead? && world.live_neighbors(cell).count == 3
   end
 
 end

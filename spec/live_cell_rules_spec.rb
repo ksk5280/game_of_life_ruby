@@ -145,10 +145,11 @@ describe "LiveCellRules" do
         c4 = world.grid[1][1]
 
         # binding.pry
+        expect(c4).to be_dead
+        binding.pry
         board.tick!
-        # this guy stays alive
+
         expect(c2).to be_alive
-        # this guy is revived
         expect(c4).to be_alive
       end
 
