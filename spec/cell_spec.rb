@@ -4,10 +4,10 @@ require "./app/world"
 require "./app/cell"
 
 describe "Cell" do
-  describe "when initialized" do
-    subject { Cell.new }
-    let(:world) { World.new }
+  subject { Cell.new }
+  let(:world) { World.new }
 
+  describe "when initialized" do
     xit "should equal new cell object" do
       expect(Cell.new).to be_a(subject)
     end
@@ -30,4 +30,10 @@ describe "Cell" do
     end
   end
 
+  describe "without less than 2 neighbors" do
+    it "will die" do
+      subject.die!
+      expect(subject).to_not be_alive
+    end
+  end
 end
