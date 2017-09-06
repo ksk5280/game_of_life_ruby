@@ -144,9 +144,7 @@ describe "LiveCellRules" do
         c3 = world.grid[0][2]
         c4 = world.grid[1][1]
 
-        # binding.pry
         expect(c4).to be_dead
-        binding.pry
         board.tick!
 
         expect(c2).to be_alive

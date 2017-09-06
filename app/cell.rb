@@ -19,7 +19,7 @@ class Cell
   end
 
   def revive!
-    alive = true
+    @alive = true
   end
 
   def die!
