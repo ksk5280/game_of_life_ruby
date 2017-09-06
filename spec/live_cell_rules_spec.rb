@@ -134,4 +134,23 @@ describe "LiveCellRules" do
 
 
   end
+
+  context "When a dead cell" do
+    describe "has exactly 3 live neighbors" do
+      it "becomes alive" do
+        board = Board.new(world, [[0,1],[0,2],[0,0]])
+        c1 = world.grid[0][0]
+        c2 = world.grid[0][1]
+        c3 = world.grid[0][2]
+        c4 = world.grid[1][1]
+
+        # binding.pry
+        board.tick!
+        expect(c2).to be_alive
+        # perhaps needs revive
+        expect(c4).to be_alive
+      end
+
+    end
+  end
 end

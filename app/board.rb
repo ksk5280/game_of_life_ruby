@@ -21,7 +21,7 @@ class Board
       if is_underpopulated?(cell)
         cells_to_die << cell
       elsif has_cell_stability?(cell)
-        cell.alive?
+        cell.alive = true
       elsif is_overcrowded?(cell)
         cells_to_die << cell
       end
@@ -41,6 +41,10 @@ class Board
 
   def is_overcrowded?(cell)
     cell.alive? && world.live_neighbors(cell).count > 3
+  end
+
+  def is_reproducible?(cell)
+    cell
   end
 
 end

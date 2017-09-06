@@ -14,6 +14,10 @@ class Cell
     alive
   end
 
+  def dead?
+    !alive?
+  end
+
   def die!
     @alive = false
   end
