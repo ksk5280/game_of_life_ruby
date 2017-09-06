@@ -14,7 +14,6 @@ class Board
     end
   end
 
-  # tick triggers the next round
   def tick!
     cells_to_die = []
 
@@ -26,7 +25,7 @@ class Board
       end
     end
 
-    cells_to_die.each {|c| c.die!}
+    cells_to_die.each { |c| c.die! }
   end
 
   def is_underpopulated?(cell)

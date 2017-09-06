@@ -70,9 +70,15 @@ describe "LiveCellRules" do
       context "in vertical line/column" do
         it "it's still stable and survives to next generation" do
           board = Board.new(world, [[1,1],[0,2],[2,2],[1,2]])
+          c1 = world.grid[0][2]
           c2 = world.grid[1][1]
+          c3 = world.grid[1][2]
+          c4 = world.grid[2][2]
           board.tick!
           expect(c2).to be_alive
+          expect(c1).to be_alive
+          expect(c3).to be_alive
+          expect(c4).to be_alive
         end
       end
 
@@ -80,7 +86,6 @@ describe "LiveCellRules" do
         xit "it survives" do
           board = Board.new(world, [[1,1],[0,2],[2,2],[0,0]])
           c2 = world.grid[1][1]
-          # binding.pry
           board.tick!
           expect(c2).to be_alive
         end
