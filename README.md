@@ -17,3 +17,7 @@ A fun challenge I took while reading Corey Haines' "Understanding the Four Rules
 2. CD into the directory.
 3. Run `bundle install`
 4. Run `rspec`
+
+## Possible Next Steps:
+1. Clean up that ugly World.live_neighbors method.
+2. (*A more exciting prospect*) Implement visual representation, including a seeder(?) that spits out different cell variations: to be shown on either terminal CLI, or (even better) the browser.
