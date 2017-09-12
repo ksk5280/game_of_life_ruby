@@ -2,7 +2,7 @@
 
 A fun challenge I took while reading Corey Haines' "Understanding the Four Rules of Simple Design". While I couldn't follow all the possible examples he gave, I did try my best to extract and separate knowledge between classes and use TDD to drive the design.
 
-(_Full Disclosure: there was a lot of `binding.pry` debugging goign on, some even driving the testing. I'm not sure if that leads to bad habits, but for this project, it really helped to visualize changes to the Cell Grid within the REPL._)
+(_Full Disclosure: there was a lot of `binding.pry` debugging going on, some even driving the testing. I'm not sure if that leads to bad habits, but for this project, it really helped to visualize changes to the Cell Grid within the REPL._)
 
 **Some Issues:**
 
