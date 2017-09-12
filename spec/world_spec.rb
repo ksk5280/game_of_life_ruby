@@ -55,7 +55,7 @@ describe "World" do
       expect(subject.live_neighbors(dead_north).count).to eql(1)
     end
 
-    it "detects eastern neighbor" do
+    it "detects western neighbor" do
       east_cell = subject.grid[1][1]
       east_cell.alive = true
       expect(east_cell).to be_alive
@@ -64,7 +64,7 @@ describe "World" do
       expect(subject.live_neighbors(dead_west).count).to eql(1)
     end
 
-    it "detects western neighbor" do
+    it "detects eastern neighbor" do
       west_cell = subject.grid[1][1]
       west_cell.alive = true
       expect(west_cell).to be_alive
