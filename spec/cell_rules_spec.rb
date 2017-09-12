@@ -4,11 +4,10 @@ require "./app/world"
 require "./app/cell"
 require "./app/board"
 
-describe "LiveCellRules" do
+describe "CellRules" do
   let(:board) { Board.new }
   let(:world) { World.new }
   let(:cell) { Cell.new}
-  subject { LiveCellRules.new }
 
   context "When a live cell" do
     describe "Has fewer than two live neighbors" do
